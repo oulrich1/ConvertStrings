@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringConversion", "StringConversion\StringConversion.vcxproj", "{98968A08-46EA-45BC-9A9A-E5BAC065D7C6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringConversionTests", "StringConversionTests\StringConversionTests.vcxproj", "{D64748CE-89A7-4F07-A6D6-DE3DBF65E25F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98968A08-46EA-45BC-9A9A-E5BAC065D7C6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{98968A08-46EA-45BC-9A9A-E5BAC065D7C6}.Debug|Win32.Build.0 = Debug|Win32
+		{98968A08-46EA-45BC-9A9A-E5BAC065D7C6}.Release|Win32.ActiveCfg = Release|Win32
+		{98968A08-46EA-45BC-9A9A-E5BAC065D7C6}.Release|Win32.Build.0 = Release|Win32
+		{D64748CE-89A7-4F07-A6D6-DE3DBF65E25F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D64748CE-89A7-4F07-A6D6-DE3DBF65E25F}.Debug|Win32.Build.0 = Debug|Win32
+		{D64748CE-89A7-4F07-A6D6-DE3DBF65E25F}.Release|Win32.ActiveCfg = Release|Win32
+		{D64748CE-89A7-4F07-A6D6-DE3DBF65E25F}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
