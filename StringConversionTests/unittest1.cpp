@@ -172,14 +172,28 @@ namespace StringConversionTests
 
 		TEST_METHOD(Test_StringAbstraction_TemplateMethods)
 		{
-			std::string str = "hey there";
-			CString dst = ConvertString<std::string>(str);
-			tstring dst2 = ConvertString<std::string>(str);
-			//std::string dst3 = ConvertString<CString>(dst);
-			tstring dst4 = ConvertString<tstring>(dst2);
-			CString expected = "hey there";
+			std::string s1 = "hey there";
 
-			//Assert::AreEqual(dst3, str);
+			CString c1 = ConvertString<std::string>(s1);
+			tstring t1 = ConvertString<std::string>(s1);
+			
+			tstring t2 = ConvertString<CString>(c1);
+			//std::string s2 = ConvertString<CString>(c1); /// TODO: These dont compile, why..
+
+			//std::string s3 = ConvertString<tstring>(t1);
+			CString c3 = ConvertString<tstring>(t1);
+
+
+			Logger::WriteMessage(s1.c_str());
+			Logger::WriteMessage(c1);
+			Logger::WriteMessage(t1.c_str());
+
+			Logger::WriteMessage("");
+			Logger::WriteMessage(c3);
+			Logger::WriteMessage(t2.c_str());
+
+
+			Assert::AreEqual(c1, _T("hey there"));
 		}
 
 

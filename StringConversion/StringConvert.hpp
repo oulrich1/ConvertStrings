@@ -35,7 +35,7 @@ namespace StringConversion {
 		virtual operator CString() {
 			static_assert(false, "Must specialize " typeid(your_class).name() ".");
 		}
-		virtual operator char*() {
+		virtual operator const char*() {
 			static_assert(false, "Must specialize " typeid(your_class).name() ".");
 		}
 	};
@@ -46,20 +46,17 @@ namespace StringConversion {
 	public: 
 		ConvertString(std::string input) : _ConvertStringBase(input) {}
 		virtual operator std::string() {
-			return this->Str();
+			return Str();
 		}
 		virtual operator tstring() {
-			tstring dst;
-			string2tstring(this->Str(), dst);
-			return dst;
+			return STD2TSTR(Str());
 		}
 		virtual operator CString() {
-			CString dst;
-			stdstring2cstring(this->Str(), dst);
-			return dst;
+			return STD2CSTR(Str());
 		}
-		virtual operator const char*() {
-			return this->Str().c_str();
+		virtual operator const char*() { 
+			// return val must be deleted when finished with the data
+			return cstring2chars(chars2cstring(Str().c_str()));
 		}
 	};
 
@@ -68,18 +65,17 @@ namespace StringConversion {
 	public:
 		ConvertString(CString input) : _ConvertStringBase(input) {}
 		virtual operator std::string() {
-			std::string dst;
-			cstring2stdstring(Str(), dst);
-			return dst;
+			return CSTR2STD(Str());
 		}
 		virtual operator tstring() {
-			return cstring2tstring(Str());
+			return CSTR2TSTR(Str());
 		}
 		virtual operator CString() {
 			return Str();
 		}
-		virtual operator char*() {
-			return 0;
+		virtual operator const char*() {
+			// return val must be deleted when finished with the data
+			return cstring2chars(Str());
 		}
 	};
 
@@ -88,19 +84,17 @@ namespace StringConversion {
 	public:
 		ConvertString(tstring input) : _ConvertStringBase(input) {}
 		virtual operator std::string() {
-			std::string dst;
-			tstring2string(Str(), dst);
-			return dst;
+			return TSTR2STD(Str());
 		}
 		virtual operator tstring() {
-			return this->Str();
+			return Str();
 		}
 		virtual operator CString() {
-			return tstring2cstring(Str());
+			return TSTR2CSTR(Str());
 		}
-		virtual operator char*() {
-			return 0;
+		virtual operator const char*() {
+			// return val must be deleted when finished with the data
+			return cstring2chars(tstring2cstring(Str()));
 		}
 	};
 }
-

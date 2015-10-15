@@ -29,7 +29,7 @@ namespace StringConversion {
 #define STD2CSTR( stdstring )                                   \
         ([](const std::string& s) -> CString {                  \
             CString retval;                                     \
-            StringHelpers::stdstring2cstring( s, retval );      \
+            stdstring2cstring( s, retval );      \
             return retval;                                      \
 		        }(stdstring))
 #endif
@@ -38,7 +38,7 @@ namespace StringConversion {
 #define CSTR2STD( cstring )                                     \
         ([](const CString& s) -> std::string {                  \
             std::string retval;                                 \
-            StringHelpers::cstring2stdstring( s, retval );      \
+            cstring2stdstring( s, retval );      \
             return retval;                                      \
 		        }( cstring ))
 #endif
@@ -51,7 +51,7 @@ namespace StringConversion {
 #define STD2TSTR( stdstring )                                   \
         ([](const std::string& s) -> tstring {                  \
             tstring retval;                                     \
-            StringHelpers::string2tstring( s, retval );         \
+            string2tstring( s, retval );         \
             return retval;                                      \
 		        }(stdstring))
 #endif
@@ -60,7 +60,7 @@ namespace StringConversion {
 #define TSTR2STD( tstr )                                        \
         ([](const tstring& s) -> std::string {                  \
             std::string retval;                                 \
-            StringHelpers::tstring2string( s, retval );         \
+            tstring2string( s, retval );         \
             return retval;                                      \
 		        }( tstr ))
 #endif
